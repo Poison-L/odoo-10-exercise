@@ -1,0 +1,102 @@
+<odoo>
+    <data>
+        <!-- tree视图 -->
+
+        <record model="ir.ui.view" id="view_tree_qingjia_qingjiadan">
+            <field name="name">请假单列表</field>
+            <field name="model">qingjia.qingjiadan</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="days"/>
+                    <field name="startdate"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- form视图 -->
+        <record model="ir.ui.view" id="view_form_qingjia_qingjiadan">
+            <field name="name">请假单</field>
+            <field name="model">qingjia.qingjiadan</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="button_confirm" states="draft" string="提交"
+                                type="workflow" class="oe_highlight"/>
+                        <button name="button_complete" states="confirm" string="批准"
+                                type="workflow" class="oe_highlight"
+                                groups="base.group_user"/>
+                        <!-- 右上角 进度显示 -->
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group name="group_top" string="请假单">
+                            <field name="name"/>
+                            <field name="days"/>
+                            <field name="startdate"/>
+                            <field name="reason"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- 视图动作 -->
+
+        <record model="ir.actions.act_window" id="qingjia.action_window">
+            <field name="name">请假单</field>
+            <field name="res_model">qingjia.qingjiadan</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- server action to the one above -->
+        <!--
+        <record model="ir.actions.server" id="qingjia.action_server">
+          <field name="name">qingjia server</field>
+          <field name="model_id" ref="model_qingjia_qingjia"/>
+          <field name="code">
+            action = {
+              "type": "ir.actions.act_window",
+              "view_mode": "tree,form",
+              "res_model": self._name,
+            }
+          </field>
+        </record>
+        -->
+
+        <!-- 顶级菜单 -->
+
+        <menuitem name="请假" id="menu_qingjia"/>
+
+        <!-- 二级菜单 -->
+
+        <menuitem name="请假单" id="menu_qingjia_qingjiadan" parent="menu_qingjia" action="qingjia.action_window"/>
+
+
+        <!-- record 规则-->
+        <record id="rule_uesr_qingjia_qingjiadan" model="ir.rule">
+            <field name="name">只能编辑自己的请假单哦！</field>
+            <field name="model_id" ref="model_qingjia_qingjiadan"/>
+            <field name="domain_force">[('create_uid','=',user.id)]</field>
+            <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+
+        <!--
+        <menuitem name="Menu 2" id="qingjia.menu_2" parent="qingjia.menu_root"/>
+        -->
+        <!-- actions -->
+        <!--
+        <menuitem name="List" id="qingjia.menu_1_list" parent="qingjia.menu_1"
+                  action="qingjia.action_window"/>
+        <menuitem name="Server to list" id="qingjia" parent="qingjia.menu_2"
+                  action="qingjia.action_server"/>
+        -->
+    </data>
+</odoo>
+
+
