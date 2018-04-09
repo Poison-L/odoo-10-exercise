@@ -6,7 +6,7 @@
         请假模块""",
 
     'description': """
-        自定义Odoo请假模块
+        请假模块，提供请假功能。
     """,
 
     'author': "Robert",
@@ -15,7 +15,7 @@
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
     # for the full list
-    'category': 'Uncategorized',
+    'category': 'Test',
     'version': '0.1',
 
     # any module necessary for this one to work correctly
