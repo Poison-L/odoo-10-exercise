@@ -16,13 +16,11 @@ class qingjiadan(models.Model):
 
     _name = 'qingjia.qingjiadan'    # 模块名_对象名
 
-    name = fields.Char(string="申请人")
-    days = fields.Integer(string="天数")
-    startdate = fields.Date(string="开始日期")
+    name = fields.Char(string="申请人", required=True)
+    days = fields.Integer(string="天数", required=True)
+    startdate = fields.Date(string="开始日期", required=True)
     reason = fields.Text(string="请假事由")
-    state = fields.Selection(WORKFLOW_STATE_SELECTIOBN,
-                             default='draft',
-                             string='状态',
+    state = fields.Selection(WORKFLOW_STATE_SELECTIOBN,default='draft', string='状态',
                              readonly=True)     # 只读，不可修改
 
     @api.multi
