@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <odoo>
     <data>
         <!-- tree视图 -->
@@ -33,10 +35,10 @@
                     </header>
                     <sheet>
                         <group name="group_top" string="请假单">
-                            <field name="name"/>
-                            <field name="days"/>
-                            <field name="startdate"/>
-                            <field name="reason"/>
+                            <label for="name"/><field name="name"/>
+                            <label for="days"/><field name="days"/>
+                            <label for="startdate"/><field name="startdate"/>
+                            <label for="reason"/><field name="reason"/>
                         </group>
                     </sheet>
                 </form>
