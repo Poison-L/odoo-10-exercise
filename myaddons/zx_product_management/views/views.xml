@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- Product Management list tree view  -->
+        <record model="ir.ui.view" id="view_tree_product_management">
+            <field name="name">Product Management Tree</field>
+            <field name="model">product.management</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="price"/>
+                    <field name="startdate"/>
+                    <field name="note"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+         <!--Product Management list form view  -->
+        <record model="ir.ui.view" id="view_form_product_management">
+            <field name="name">Product Management Form</field>
+            <field name="model">product.management</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="button_confirm" states="draft" string="提交"
+                                type="workflow" class="oe_highlight"/>
+                        <button name="button_complete" states="confirm" string="批准"
+                                type="workflow" class="oe_highlight"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group name="group_top" string="产品管理">
+                            <field name="name"/>
+                            <field name="price"/>
+                            <field name="startdate"/>
+                            <field name="note"/>
+                        </group>
+                            </sheet>
+                </form>
+            </field>
+        </record>
+
+         <!-- Action to open Product Management list -->
+        <record model="ir.actions.act_window" id="product_action_window">
+            <field name="name">Product Management</field>
+            <field name="res_model">product.management</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu item to open Product Management list -->
+        <menuitem name="Product Management" id="menu_product_management_1"/>
+
+        <menuitem name="Product Management List"
+                  id="menu_product_management_2"
+                  parent="menu_product_management_1"
+                  action="product_action_window"/>
+
+    </data>
+</odoo>
+
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- workflow -->
+        <record id="workflow_product_management" model="workflow">
+            <field name="name">Product Management Workflow</field>
+            <field name="osv">product.management</field>
+            <field name="on_create">True</field>
+        </record>
+
+        <!-- workflow activity -->
+        <record id="activity_draft" model="workflow.activity">
+            <field name="name">草稿</field>
+            <field name="wkf_id" ref="workflow_product_management"/>
+            <field name="kind">dummy</field>
+            <field name="flow_start">True</field>
+        </record>
+
+        <record id="activity_confirm" model="workflow.activity">
+            <field name="name">待审核</field>
+            <field name="wkf_id" ref="workflow_product_management"/>
+            <field name="kind">function</field>
+            <field name="action">do_confirm()</field>
+        </record>
+
+        <record id="activity_complete" model="workflow.activity">
+            <field name="name">已完成</field>
+            <field name="wkf_id" ref="workflow_product_management"/>
+            <field name="kind">function</field>
+            <field name="action">do_complete()</field>
+        </record>
+
+        <!-- workflow transition -->
+        <record id="transition_draft2confirm" model="workflow.transition">
+            <field name="act_from" ref="activity_draft"/>
+            <field name="act_to" ref="activity_confirm"/>
+            <field name="signal">button_confirm</field>
+        </record>
+
+        <record id="transition_confirm2complete" model="workflow.transition">
+            <field name="act_from" ref="activity_confirm"/>
+            <field name="act_to" ref="activity_complete"/>
+            <field name="signal">button_complete</field>
+        </record>
+
+    </data>
+</odoo>
