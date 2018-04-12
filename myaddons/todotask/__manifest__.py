@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "todo task",
+    'name': "todo task app",
 
     'summary': """
         工作计划管理系统""",
