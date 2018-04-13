@@ -3,7 +3,7 @@
 <odoo>
     <data>
         <!-- Action to open To-do Task list -->
-        <record model="ir.actions.act_window" id="task_action_window">
+        <record model="ir.actions.act_window" id="action_todo_task">
             <field name="name">To-do Task</field>
             <field name="res_model">todo.task</field>
             <field name="view_mode">tree,form</field>
@@ -66,7 +66,7 @@
         <menuitem id="menu_todo_task2"
                   name="To-Do Tasks"
                   parent="menu_todo_task1"
-                  action="task_action_window"
+                  action="action_todo_task"
                   sequence="20"/>
 
     </data>
