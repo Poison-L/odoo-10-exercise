@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "todouser",
+    'name': "Multiuser To-Do",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        将任务应用扩展到多用户""",
 
     'description': """
-        Long description of module's purpose
+        Extend the To-Do app to multiuser.
     """,
 
-    'author': "My Company",
+    'author': "Robert",
     'website': "http://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
@@ -20,7 +19,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['todotask'],
 
     # always loaded
     'data': [
@@ -32,4 +31,5 @@
     'demo': [
         'demo/demo.xml',
     ],
+    'application': True,
 }
