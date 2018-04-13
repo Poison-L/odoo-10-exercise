@@ -11,8 +11,8 @@
                     <field name="name"/>
                     <field name="price"/>
                     <field name="startdate"/>
-                    <field name="note"/>
                     <field name="state"/>
+                    <field name="note"/>
                 </tree>
             </field>
         </record>
