@@ -17,7 +17,21 @@
             </field>
         </record>
 
-         <!--Product Management list form view  -->
+        <!-- Product Management list kanban view  -->
+        <record model="ir.ui.view" id="view_kanban_product_management">
+            <field name="name">Product Management Kanban</field>
+            <field name="model">product.management</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="price"/>
+                    <field name="startdate"/>
+                    <field name="state"/>
+                </kanban>
+            </field>
+        </record>
+
+        <!--Product Management list form view  -->
         <record model="ir.ui.view" id="view_form_product_management">
             <field name="name">Product Management Form</field>
             <field name="model">product.management</field>
@@ -37,16 +51,16 @@
                             <field name="startdate"/>
                             <field name="note"/>
                         </group>
-                            </sheet>
+                    </sheet>
                 </form>
             </field>
         </record>
 
-         <!-- Action to open Product Management list -->
+        <!-- Action to open Product Management list -->
         <record model="ir.actions.act_window" id="product_action_window">
             <field name="name">Product Management</field>
             <field name="res_model">product.management</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,kanban</field>
         </record>
 
         <!-- Menu item to open Product Management list -->
