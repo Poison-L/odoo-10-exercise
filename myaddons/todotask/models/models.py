@@ -11,12 +11,13 @@ class TodoTask(models.Model):
     is_done = fields.Boolean('Done?', )
     active = fields.Boolean('Active?', default=True)
 
-    @api.one
+    @api.multi
     def do_toggle_done(self):
-        self.is_done = not self.is_done
+        for task in self:
+            task.is_done = not task.is_done
         return True
 
-    @api.multi
+    @api.model
     def do_clear_done(self):
         done_recs = self.search([('is_done', '=', True)])
         done_recs.write({'active': False})
