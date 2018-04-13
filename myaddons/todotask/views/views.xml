@@ -3,16 +3,16 @@
 <odoo>
     <data>
         <!-- Action to open To-do Task list -->
-        <record model="ir.actions.act_window" id="todotask.action_window">
+        <record model="ir.actions.act_window" id="task_action_window">
             <field name="name">To-do Task</field>
-            <field name="res_model">todotask.todotask</field>
+            <field name="res_model">todo.task</field>
             <field name="view_mode">tree,form</field>
         </record>
 
         <!-- To-do Task list form view  -->
-        <record id="view_form_todotask_todotask" model="ir.ui.view">
+        <record id="view_form_todo_task" model="ir.ui.view">
             <field name="name">To-do Task Form</field>
-            <field name="model">todotask.todotask</field>
+            <field name="model">todo.task</field>
             <field name="arch" type="xml">
                 <form string="">
                     <header>
@@ -37,9 +37,9 @@
         </record>
 
         <!-- To-do Task list tree view  -->
-        <record model="ir.ui.view" id="view_tree_todotask_todotask">
+        <record model="ir.ui.view" id="view_tree_todo_task">
             <field name="name">To-do Task Tree</field>
-            <field name="model">todotask.todotask</field>
+            <field name="model">todo.task</field>
             <field name="arch" type="xml">
                 <tree colors="gray:is_done==True">
                     <field name="name"/>
@@ -48,9 +48,9 @@
             </field>
         </record>
 
-        <record id="view_filter_todotask_todotask" model="ir.ui.view">
+        <record id="view_filter_todo_task" model="ir.ui.view">
             <field name="name">To-do Task Filter</field>
-            <field name="model">todotask.todotask</field>
+            <field name="model">todo.task</field>
             <field name="arch" type="xml">
                 <search string="">
                     <field name="name"/>
@@ -61,13 +61,12 @@
         </record>
 
         <!-- Menu item to open To-do Task list -->
+        <menuitem name="工作计划管理" id="menu_todo_task1"/>
 
-        <menuitem name="工作计划管理" id="menu_todotask"/>
-
-        <menuitem id="menu_todotask_todotask"
+        <menuitem id="menu_todo_task2"
                   name="To-Do Tasks"
-                  parent="menu_todotask"
-                  action="todotask.action_window"
+                  parent="menu_todo_task1"
+                  action="task_action_window"
                   sequence="20"/>
 
     </data>
