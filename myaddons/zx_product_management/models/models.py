@@ -17,7 +17,8 @@ class ProductManagement(models.Model):
     _name = 'product.management'
 
     name = fields.Char(string="产品名称", required=True)
-    price = fields.Float(string="产品价格",  required=True, )
+    price = fields.Float(string="产品价格",  required=True)
+    # number = fields.Integer(string="产品数量", required=True)
     startdate = fields.Date(string="提交日期", required=True)
     note = fields.Text(string="备注", default=None)
     state = fields.Selection(WORKFLOW_STATE_SELECTIOBN, default='draft', string='状态',
