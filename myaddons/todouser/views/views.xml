@@ -36,9 +36,9 @@
         <record id="view_filter_todo_task_inherited" model="ir.ui.view">
             <field name="name">Todo Task tree - User extension</field>
             <field name="model">todo.task</field>
-            <field name="inherit_id" ref="todo_app.view_filter_todo_task"/>
+            <field name="inherit_id" ref="todotask.view_filter_todo_task"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='user_id']" position="after">
+                <xpath expr="//field[@name='name']" position="after">
                     <field name="user_id"/>
                     <filter name="filter_my_tasks" string="My Tasks"
                             domain="[('user_id','in',[uid,False])]" />
