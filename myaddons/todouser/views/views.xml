@@ -46,10 +46,22 @@
                 <xpath expr="//field[@name='name']" position="after">
                     <field name="user_id"/>
                     <filter name="filter_my_tasks" string="My Tasks"
-                            domain="[('user_id','in',[uid,False])]" />
+                            domain="[('user_id','in',[uid,False])]"/>
                     <filter name="filter_not_assigned" string="Not Assigned"
-                            domain="[('user_id','=',False)]" />
+                            domain="[('user_id','=',False)]"/>
                 </xpath>
+            </field>
+        </record>
+
+        <!-- 修改菜单项 -->
+        <record id="todotask.menu_todo_task" model="ir.ui.menu">
+            <field name="name">My To-Do</field>
+        </record>
+
+        <!-- 启用 My Task 筛选器-->
+        <record model="ir.actions.act_window" id="todotask.action_todo_task">
+            <field name="context">
+                {'search_default_filter_my_tasks': True}
             </field>
         </record>
 
