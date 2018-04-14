@@ -18,7 +18,7 @@
         </record>
 
         <!-- Product Management list kanban view  -->
-        <record model="ir.ui.view" id="view_kanban_product_management">
+        <record id="view_kanban_product_management" model="ir.ui.view">
             <field name="name">Product Management Kanban</field>
             <field name="model">product.management</field>
             <field name="arch" type="xml">
@@ -27,6 +27,25 @@
                     <field name="price"/>
                     <field name="startdate"/>
                     <field name="state"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <!--<div class="o_kanban_tags_section">-->
+                                    <!--<field name="attribute_value_ids" groups="product.group_product_variant"/>-->
+                                <!--</div>-->
+                                <!--<div class="o_kanban_image">-->
+                                    <!--<img t-att-src="kanban_image('product.product', 'image_small', record.id.value)"/>-->
+                                <!--</div>-->
+                                <div class="oe_kanban_details">
+                                    <strong><field name="name"/></strong>
+                                    <ul>
+                                        <li>Price: <field name="price"/></li>
+                                    </ul>
+                                    <div name="startdate"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
                 </kanban>
             </field>
         </record>
