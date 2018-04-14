@@ -34,14 +34,14 @@
                                     <!--<field name="attribute_value_ids" groups="product.group_product_variant"/>-->
                                 <!--</div>-->
                                 <!--<div class="o_kanban_image">-->
-                                    <!--<img t-att-src="kanban_image('product.product', 'image_small', record.id.value)"/>-->
+                                    <!--<img t-att-src=""/>-->
                                 <!--</div>-->
                                 <div class="oe_kanban_details">
                                     <strong><field name="name"/></strong>
                                     <ul>
-                                        <li>Price: <field name="price"/></li>
+                                        <li>价格：<field name="price"/></li>
+                                        <li>状态：<field name="state"/></li>
                                     </ul>
-                                    <div name="startdate"/>
                                 </div>
                             </div>
                         </t>
