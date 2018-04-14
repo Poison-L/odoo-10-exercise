@@ -12,6 +12,7 @@ class TodoTask(models.Model):
 
     @api.one
     def do_toggle_done(self):
+        # 责任人才可以执行状态切换
         if self.user_id != self.env.user:
             raise Exception('Only the responsible can do this!')
         else:
