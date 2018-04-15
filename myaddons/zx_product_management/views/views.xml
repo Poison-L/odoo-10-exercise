@@ -76,13 +76,14 @@
                         <field name="state" widget="statusbar"/>
                     </header>
                     <sheet>
-                        <!--<div class="oe_button_box" name="button_box">-->
-                        <!--<button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">-->
-                        <!--<field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>-->
-                        <!--</button>-->
-                        <!--<button name="" type="action" string="有效"/>-->
-                        <!--<button name="" type="object" string="追溯"/>-->
-                        <!--</div>-->
+                        <div class="oe_button_box" name="button_box">
+                            <!--<button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">-->
+                                <!--<field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>-->
+                            <!--</button>-->
+                            <button class="oe_stat_button" name="270" icon="fa-building-o" type="object" string="有效"/>
+                            <button class="oe_stat_button" name="282" icon="fa-arrows-v" type="action" string="追溯"/>
+                            <button class="oe_stat_button" name="226" icon="fa-truck" type="action" string="补货"/>
+                        </div>
 
                         <div class="oe_title">
                             <label for="name" class="oe_edit_only" string="产品名称"/>
