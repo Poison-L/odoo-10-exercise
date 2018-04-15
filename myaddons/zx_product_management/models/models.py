@@ -15,7 +15,7 @@ class ProductManagement(models.Model):
     ]
 
     _name = 'product.management'
-    _inherit = ['mail.thread']
+    _inherit = ['product.management', 'mail.thread']
     _description = u'产品管理'
 
     name = fields.Char(string="产品名称", required=True)
