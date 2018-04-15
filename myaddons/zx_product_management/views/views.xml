@@ -33,17 +33,25 @@
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click">
                                 <!--<div class="o_kanban_tags_section">-->
-                                    <!--<field name="attribute_value_ids" groups="product.group_product_variant"/>-->
+                                <!--<field name="attribute_value_ids" groups="product.group_product_variant"/>-->
                                 <!--</div>-->
                                 <!--<div class="o_kanban_image">-->
-                                    <!--<img t-att-src=""/>-->
+                                <!--<img t-att-src=""/>-->
                                 <!--</div>-->
                                 <div class="oe_kanban_details">
-                                    <strong><field name="name"/></strong>
+                                    <strong>
+                                        <field name="name"/>
+                                    </strong>
                                     <ul>
-                                        <li>价格：<field name="price"/></li>
-                                        <li>数量：<field name="number"/></li>
-                                        <li>状态：<field name="state"/></li>
+                                        <li>价格：
+                                            <field name="price"/>
+                                        </li>
+                                        <li>数量：
+                                            <field name="number"/>
+                                        </li>
+                                        <li>状态：
+                                            <field name="state"/>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -76,6 +84,10 @@
                             <field name="note"/>
                         </group>
                     </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
                 </form>
             </field>
         </record>
