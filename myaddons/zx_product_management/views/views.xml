@@ -100,11 +100,11 @@
         </record>
 
         <!-- Menu item to open Product Management list -->
-        <menuitem name="Product Management" id="menu_product_management_1"/>
+        <menuitem name="Product Management" id="menu_product_management"/>
 
         <menuitem name="Product Management List"
-                  id="menu_product_management_2"
-                  parent="menu_product_management_1"
+                  id="menu_product_management_1"
+                  parent="menu_product_management"
                   action="product_action_window"/>
 
         <!-- record 规则-->
