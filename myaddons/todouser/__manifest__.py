@@ -30,7 +30,8 @@
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo/demo.xml',
+        'data/demo.xml',
+        # 'data/todo.task.csv',
     ],
     'application': True,
 }
