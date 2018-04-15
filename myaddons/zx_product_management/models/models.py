@@ -15,6 +15,8 @@ class ProductManagement(models.Model):
     ]
 
     _name = 'product.management'
+    _inherit = ['mail.thread']
+    _description = u'产品管理'
 
     name = fields.Char(string="产品名称", required=True)
     price = fields.Float(string="产品价格",  required=True)
