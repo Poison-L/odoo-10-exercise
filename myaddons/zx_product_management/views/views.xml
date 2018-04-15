@@ -10,6 +10,7 @@
                 <tree>
                     <field name="name"/>
                     <field name="price"/>
+                    <field name="number"/>
                     <field name="startdate"/>
                     <field name="state"/>
                     <field name="note"/>
@@ -25,6 +26,7 @@
                 <kanban>
                     <field name="name"/>
                     <field name="price"/>
+                    <field name="number"/>
                     <field name="startdate"/>
                     <field name="state"/>
                     <templates>
@@ -40,6 +42,7 @@
                                     <strong><field name="name"/></strong>
                                     <ul>
                                         <li>价格：<field name="price"/></li>
+                                        <li>数量：<field name="number"/></li>
                                         <li>状态：<field name="state"/></li>
                                     </ul>
                                 </div>
@@ -67,6 +70,7 @@
                         <group name="group_top" string="产品管理">
                             <field name="name"/>
                             <field name="price"/>
+                            <field name="number"/>
                             <field name="startdate"/>
                             <field name="note"/>
                         </group>
