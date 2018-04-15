@@ -19,7 +19,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['zx_product_management', 'mail'],
+    'depends': ['mail'],
 
     # always loaded
     'data': [
