@@ -88,9 +88,7 @@
                         <div class="oe_title">
                             <label for="name" class="oe_edit_only" string="产品名称"/>
                             <h1>
-                                <field name="name" placeholder="产品名称"/>
-                                <!-- span值固定 -->
-                                <span>产品名称</span>
+                                <field name="name" placeholder="产品名称" modifiers="{'required': true}"/>
                             </h1>
                         </div>
 
@@ -111,7 +109,6 @@
                             <page string="库存">
                                 <group>
                                     <group>
-                                        <field name="name"/>
                                         <field name="startdate"/>
                                     </group>
                                     <group>
@@ -144,7 +141,9 @@
         <!-- Menu item to open Product Management list -->
         <menuitem name="Product Management" id="menu_product_management"/>
 
-        <menuitem name="Product Management List" id="menu_pm_list" parent="menu_product_management"
+        <menuitem name="Product Management List" id="menu_pm_list" parent="menu_product_management"/>
+
+        <menuitem id="menu_list_item" name="Product" parent="menu_pm_list" sequence="1"
                   action="product_action_window"/>
 
         <!-- record 规则-->
