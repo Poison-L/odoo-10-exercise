@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "User interface improvements to the To-Do app",
+    'name': "UI improvements to the To-Do app",
 
     'summary': """
         用户界面改进任务应用""",
@@ -22,9 +22,9 @@
 
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
+        # 'security/ir.model.access.csv',
         'views/views.xml',
-        'views/menu.xml',
+        # 'views/menu.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
