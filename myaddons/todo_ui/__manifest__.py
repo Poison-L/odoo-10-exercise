@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "todo_ui",
+    'name': "User interface improvements to the To-Do app",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        用户界面改进任务应用""",
 
     'description': """
-        Long description of module's purpose
-    """,
+        'User friendly features.""",
 
     'author': "My Company",
     'website': "http://www.yourcompany.com",
@@ -20,16 +18,17 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['todouser'],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/views.xml',
-        'views/templates.xml',
+        'views/menu.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
+    'application': True,
 }
