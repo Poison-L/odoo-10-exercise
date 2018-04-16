@@ -32,7 +32,7 @@ class Stage(models.Model):
     date_changed = fields.Datetime('最后修改时间')
 
     # Other fields:
-    fold = fields.Boolean('折叠?')
+    fold = fields.Boolean('folded?')
     image = fields.Binary('图片')
 
 
