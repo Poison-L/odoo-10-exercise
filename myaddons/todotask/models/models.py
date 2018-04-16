@@ -25,7 +25,7 @@ class TodoTask(models.Model):
         return True
 
     # 练习计算字段
-    @api.depends('stage_id.fold')
-    def _compute_stage_fold(self):
-        for task in self:
-            task.stage_fold = task.stage_id.fold
+    # @api.depends('stage_id.fold')
+    # def _compute_stage_fold(self):
+    #     for task in self:
+    #         task.stage_fold = task.stage_id.fold
