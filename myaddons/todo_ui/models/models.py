@@ -2,14 +2,18 @@
 
 from odoo import models, fields, api
 
-# class todo_ui(models.Model):
-#     _name = 'todo_ui.todo_ui'
 
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         self.value2 = float(self.value) / 100
+class Tag(models.Model):
+    _name = 'todo.task.tag'
+    _description = 'To-do Tag'
+
+    name = fields.Char('Name', 40, translate=True)
+
+
+class Stage(models.Model):
+    _name = 'todo.task.stage'
+    _description = u'To-do Stage'
+    _order = 'sequence,name'
+
+    name = fields.Char('Name', 40, translate=True)
+    sequence = fields.Integer('Sequence')
