@@ -19,7 +19,7 @@
                         <button name="do_toggle_done" string="Toggle Done" class="oe_highlight"
                                 states="" type="object"/>
                         <button name="do_clear_done" string="Clear All Done" type="object"/>
-                        <field name="state" widget="statusbar" statusbar_visible="" statusbar_colors="{'KEY_IS_STATE':'VALUE_IS_COLOR'}"/>
+                        <!--<field name="state" widget="statusbar" statusbar_visible="" statusbar_colors="{'KEY_IS_STATE':'VALUE_IS_COLOR'}"/>-->
                     </header>
                     <sheet>
                         <group name="group_top">
