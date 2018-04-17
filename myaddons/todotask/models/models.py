@@ -11,10 +11,6 @@ class TodoTask(models.Model):
     is_done = fields.Boolean('Done?', )
     active = fields.Boolean('Active?', default=True)
 
-    state = fields.Selection([('draft', 'New'),
-                              ('open', 'Started'),
-                              ('done', 'Closed')], '状态')
-
     @api.multi
     def do_toggle_done(self):
         for task in self:
