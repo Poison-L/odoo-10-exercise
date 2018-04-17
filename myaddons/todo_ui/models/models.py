@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class Tag(models.Model):
@@ -64,3 +65,16 @@ class TodoTask(models.Model):
 
     def _write_stage_fold(self):
         self.stage_id.fold = self.stage_fold
+
+    # SQL约束 不让活动任务具有相同标题
+    _sql_constraints = [('todo_task_name_uniq',
+                         'UNIQUE (name, active)',
+                         'Task title must be unique!')]
+
+    # python约束 名称至少5个字符
+    @api.constrains('name')
+    def _check_name_size(self):
+        for todo in self:
+            if len(todo.name) < 5:
+                raise ValidationError('Must have 5 chars!')
+
