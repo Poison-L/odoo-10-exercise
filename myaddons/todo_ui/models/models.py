@@ -19,9 +19,9 @@ class Stage(models.Model):
     # String fields:
     name = fields.Char(string='名称', size=40, translate=True)
     desc = fields.Text('描述')
-    state = fields.Selection(
-        [('draft', 'New'), ('open', 'Started'),
-         ('done', 'Closed')], '状态')
+    state = fields.Selection([('draft', 'New'),
+                              ('open', 'Started'),
+                              ('done', 'Closed')], '状态')
     docs = fields.Html('文件')
 
     # Numeric fields:
