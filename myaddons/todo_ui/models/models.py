@@ -41,3 +41,26 @@ class TodoTask(models.Model):
 
     stage_id = fields.Many2one('todo.task.stage', 'Stage')
     tag_ids = fields.Many2many('todo.task.tag', string='Tags')
+
+    # 计算字段
+    stage_fold = fields.Boolean('Stage Folded?',
+                                compute='_compute_stage_fold',
+                                # store=False, # the default
+                                search='_search_stage_fold',
+                                inverse='_write_stage_fold'
+                                )
+
+    # 关联字段
+    stage_state = fields.Selection(string='Stage State', related='stage_id.state')
+
+    # 计算字段方法
+    @api.depends('stage_id.fold')
+    def _compute_stage_fold(self):
+        for task in self:
+            task.stage_fold = task.stage_id.fold
+
+    def _search_stage_fold(self, operator, value):
+        return [('stage_id.fold', operator, value)]
+
+    def _write_stage_fold(self):
+        self.stage_id.fold = self.stage_fold
