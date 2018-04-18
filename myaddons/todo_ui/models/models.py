@@ -43,6 +43,8 @@ class TodoTask(models.Model):
     stage_id = fields.Many2one('todo.task.stage', 'Stage')
     tag_ids = fields.Many2many('todo.task.tag', string='Tags')
 
+    effort_estimate = fields.Integer('Effort Estimate')
+
     # 计算字段
     stage_fold = fields.Boolean('Stage Folded?',
                                 compute='_compute_stage_fold',
