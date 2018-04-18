@@ -54,6 +54,9 @@ class TodoTask(models.Model):
     # 关联字段
     stage_state = fields.Selection(string='Stage State', related='stage_id.state')
 
+    # 显示用户任务数量
+    user_todo_count = fields.Integer('User To-Do Count', compute='compute_user_todo_count')
+
     # 计算字段方法
     @api.depends('stage_id.fold')
     def _compute_stage_fold(self):
@@ -78,3 +81,6 @@ class TodoTask(models.Model):
             if len(todo.name) < 5:
                 raise ValidationError('Must have 5 chars!')
 
+    def compute_user_todo_count(self):
+        for task in self:
+            task.user_todo_count = task.search_count([('user_id', '=', task.user_id.id)])
