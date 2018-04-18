@@ -5,9 +5,10 @@
         <!-- 智能按钮任务统计动作定义 -->
         <act_window id="action_todo_task_button"
                     name="To-Do Tasks" res_model="todo.task"
-                    view_mode="tree,form,graph,pivot"
+                    view_mode="tree,form,calendar,graph,pivot"
                     domain="[('user_id','=',default_user_id)]"/>
 
+        <!-- Tree -->
         <record id="todotask.view_tree_todo_task" model="ir.ui.view">
             <field name="model">todo.task</field>
             <field name="arch" type="xml">
@@ -23,6 +24,7 @@
             </field>
         </record>
 
+        <!-- Form -->
         <record id="view_form_todo_task_ui" model="ir.ui.view">
             <field name="name">Todo Task UI</field>
             <field name="model">todo.task</field>
@@ -50,7 +52,7 @@
                                 <field name="user_id" class="oe_inline"/>
                             </h3>
                         </div>
-
+                        <!-- 智能按钮 -->
                         <button class="oe_stat_button"
                                 name="%(action_todo_task_button)d"
                                 type="action" icon="fa-tasks"
@@ -58,7 +60,7 @@
                                 help="All to-dos for this user">
                             <field name="user_todo_count" widget="statinfo" string="To-Dos"/>
                         </button>
-
+                        <!-- 布局 -->
                         <group name="group_top">
                             <group name="group_left">
                                 <field name="date_deadline"/>
@@ -75,10 +77,8 @@
                                 <!--<field name="docs"/>-->
                             </page>
                             <page string="Blackboard" name="blackboard">
-
                             </page>
                         </notebook>
-
                     </sheet>
                     <field name="message_follower_ids" widget="mail_followers"/>
                     <field name="message_ids" widget="mail_thread"/>
@@ -86,6 +86,30 @@
             </field>
         </record>
 
+        <!-- Calendar -->
+        <record id="view_calendar_todo_task" model="ir.ui.view">
+            <field name="model">todo.task</field>
+            <field name="arch" type="xml">
+                <calendar date_start="date_deadline" color="user_id"
+                          display="[name], Stage [stage_id]">
+                    <field name="name"/>
+                    <field name="stage_id"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!-- Graph 图表视图-->
+        <record id="view_graph_todo_task" model="ir.ui.view">
+            <field name="model">todo.task</field>
+            <field name="arch" type="xml">
+                <graph type="bar">
+                    <field name="stage_id"/>
+                    <field name="effort_estimate" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Search -->
         <record id="todotask.view_filter_todo_task" model="ir.ui.view">
             <field name="model">todo.task</field>
             <field name="arch" type="xml">
