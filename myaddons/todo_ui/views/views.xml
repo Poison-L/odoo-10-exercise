@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+
+        <!-- 智能按钮任务统计动作定义 -->
+        <act_window id="action_todo_task_button"
+                    name="To-Do Tasks" res_model="todo.task"
+                    view_mode="tree,form,graph,pivot"
+                    domain="[('user_id','=',default_user_id)]" />
+
         <record id="view_form_todo_task_ui" model="ir.ui.view">
             <field name="name">Todo Task UI</field>
             <field name="model">todo.task</field>
@@ -28,6 +35,14 @@
                                 <field name="user_id" class="oe_inline"/>
                             </h3>
                         </div>
+
+                        <button class="oe_stat_button"
+                                    name="%(action_todo_task_button)d"
+                                    type="action" icon="fa-tasks"
+                                    context="{'default_user_id': user_id}"
+                                    help="All to-dos for this user">
+                            <field name="user_todo_count" widget="statinfo" string="To-Dos"/>
+                        </button>
 
                         <group name="group_top">
                             <group name="group_left">
