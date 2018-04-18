@@ -6,7 +6,22 @@
         <act_window id="action_todo_task_button"
                     name="To-Do Tasks" res_model="todo.task"
                     view_mode="tree,form,graph,pivot"
-                    domain="[('user_id','=',default_user_id)]" />
+                    domain="[('user_id','=',default_user_id)]"/>
+
+        <record id="todotask.view_tree_todo_task" model="ir.ui.view">
+            <field name="model">todo.task</field>
+            <field name="arch" type="xml">
+                <!--decoration-bf="state=='open'"-->
+                <tree decoration-muted="is_done"
+
+                      delete="false">
+                    <field name="name"/>
+                    <field name="user_id"/>
+                    <field name="is_done"/>
+                    <!--<field name="state" invisible="1"/>-->
+                </tree>
+            </field>
+        </record>
 
         <record id="view_form_todo_task_ui" model="ir.ui.view">
             <field name="name">Todo Task UI</field>
@@ -37,10 +52,10 @@
                         </div>
 
                         <button class="oe_stat_button"
-                                    name="%(action_todo_task_button)d"
-                                    type="action" icon="fa-tasks"
-                                    context="{'default_user_id': user_id}"
-                                    help="All to-dos for this user">
+                                name="%(action_todo_task_button)d"
+                                type="action" icon="fa-tasks"
+                                context="{'default_user_id': user_id}"
+                                help="All to-dos for this user">
                             <field name="user_todo_count" widget="statinfo" string="To-Dos"/>
                         </button>
 
@@ -68,6 +83,20 @@
                     <field name="message_follower_ids" widget="mail_followers"/>
                     <field name="message_ids" widget="mail_thread"/>
                 </form>
+            </field>
+        </record>
+
+        <record id="todotask.view_filter_todo_task" model="ir.ui.view">
+            <field name="model">todo.task</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name"/>
+                    <field name="user_id"/>
+                    <filter name="filter_not_done" string="Not Done" domain="[('is_done','=',False)]"/>
+                    <filter name="filter_done" string="Done" domain="[('is_done','!=',False)]"/>
+                    <separator/>
+                    <filter name="group_user" string="By User" context="{'group_by': 'user_id'}"/>
+                </search>
             </field>
         </record>
 
