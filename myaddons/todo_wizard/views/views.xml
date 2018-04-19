@@ -37,7 +37,7 @@
             </field>
         </record>
         <!-- More button Action -->
-        <act_window id="todo_app.action_todo_wizard"
+        <act_window id="todotask.action_todo_wizard"
                     name="To-Do Tasks Wizard"
                     src_model="todo.task" res_model="todo.wizard"
                     view_mode="form" target="new" multi="True"/>
