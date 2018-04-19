@@ -69,6 +69,6 @@
                   parent="menu_todo_task"
                   action="action_todo_task"
                   sequence="20"/>
-
+        
     </data>
 </odoo>
