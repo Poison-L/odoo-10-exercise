@@ -41,5 +41,12 @@
                     name="To-Do Tasks Wizard"
                     src_model="todo.task" res_model="todo.wizard"
                     view_mode="form" target="new" multi="True"/>
+
+        <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+        <!--<menuitem id="menu_todo_wizard" name="待处理任务管理助理" sequence="0"/>-->
+
+        <!-- This Menu Item must have a parent and an action -->
+        <!--<menuitem id="menu_wizard_item" name="待处理任务" parent="menu_todo_wizard" action="todotask.action_todo_wizard" sequence="20"/>-->
+
     </data>
 </odoo>
