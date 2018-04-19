@@ -27,15 +27,15 @@
         <!--   </record> -->
         <!--  -->
 
-        <record id="apple" model="mymodule.fruits">
+        <record id="apple" model="my.fruits">
             <field name="name">apple</field>
         </record>
 
-        <record id="banana" model="mymodule.fruits">
+        <record id="banana" model="my.fruits">
             <field name="name">banana</field>
         </record>
 
-        <record id="pear" model="mymodule.fruits">
+        <record id="pear" model="my.fruits">
             <field name="name">pear</field>
         </record>
 
