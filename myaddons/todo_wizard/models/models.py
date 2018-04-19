@@ -34,3 +34,9 @@ class TodoWizard(models.TransientModel):
         if vals:
             self.task_ids.write(vals)
         return True
+
+    @api.multi
+    def do_count_tasks(self):
+        Task = self.env['todo.task']
+        count = Task.search_count([('is done', '=', False)])
+        raise exceptions.Warning('There are %d active tasks.' % count)
