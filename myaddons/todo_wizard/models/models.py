@@ -13,15 +13,16 @@ class TodoWizard(models.TransientModel):
 
     task_ids = fields.Many2many('todo.task', string='Tasks')
     new_deadline = fields.Date('Deadline to Set')
-    # res.users 是？？？
     new_user_id = fields.Many2one('res.users', string='Responsible to Set')
 
     @api.multi
     def do_mass_update(self):
+        """ 批量更新 """
         self.ensure_one()
 
         if not (self.new_deadline or self.new_user_id):
             raise exceptions.ValidationError('No data to update!')
+        # 调试信息传到服务器日志
         _logger.debug('Mass update on Todo Tasks %s',
                       self.task_ids.ids)
         vals = {}
