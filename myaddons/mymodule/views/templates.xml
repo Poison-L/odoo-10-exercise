@@ -1,11 +1,11 @@
 <odoo>
     <data>
-        <template id="assets_backend" name="you_module_name assets" inherit_id="web.assets_backend">
-            <xpath expr="." position="inside">
-                <link rel="stylesheet" href="/mymodule/static/bootstrap/css/bootstrap.css"/>
-                <script type="text/javascript" src="/mymodule/static/bootstrap/js/bootstrap.js"/>
-                <script type="text/javascript" src="/mymodule/static/js/jquery-3.3.1.js"/>
-            </xpath>
-        </template>
+        <!--<template id="assets_backend" name="you_module_name assets" inherit_id="web.assets_backend">-->
+            <!--<xpath expr="." position="inside">-->
+                <!--<link rel="stylesheet" href="/mymodule/static/bootstrap/css/bootstrap.css"/>-->
+                <!--<script type="text/javascript" src="/mymodule/static/bootstrap/js/bootstrap.js"/>-->
+                <!--<script type="text/javascript" src="/mymodule/static/js/jquery-3.3.1.js"/>-->
+            <!--</xpath>-->
+        <!--</template>-->
     </data>
 </odoo>
