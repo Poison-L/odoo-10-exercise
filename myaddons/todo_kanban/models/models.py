@@ -2,14 +2,11 @@
 
 from odoo import models, fields, api
 
-# class todo_kanban(models.Model):
-#     _name = 'todo_kanban.todo_kanban'
 
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         self.value2 = float(self.value) / 100
+class NewModule(models.Model):
+    _inherit = 'todo.task'
+
+    color = fields.Integer(string="色号", required=False, )
+    priority = fields.Selection([('0', 'Low'), ('1', 'Normal'), ('2', 'High')], string="优先级", default='1')
+    kanban_state = fields.Selection([('normal', 'In Progress'), ('blocked', 'Blocked'), ('done', 'Ready for next stage')],
+                                    string="看板状态", default='normal')
