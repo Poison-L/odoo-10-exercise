@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "todo_report",
+    'name': "To-Do Report",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        报告待处理任务""",
 
     'description': """
-        Long description of module's purpose
+        Report for To-Do tasks
     """,
 
     'author': "My Company",
@@ -20,7 +19,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['todo_kanban'],
 
     # always loaded
     'data': [
