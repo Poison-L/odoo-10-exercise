@@ -6,7 +6,7 @@
                     res_model="todo.task" view_mode="kanban,tree,form,calendar,graph,pivot"
                     context="{'search_default_filter_my_tasks': True}"/>
 
-        <record id="" model="ir.ui.view">
+        <record id="view_kanban_todo_task" model="ir.ui.view">
             <field name="name">To-Do kanban</field>
             <field name="model">todo.task</field>
             <field name="arch" type="xml">
