@@ -1,59 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
-    <!--
-    <record model="ir.ui.view" id="todo_report.list">
-      <field name="name">todo_report list</field>
-      <field name="model">todo_report.todo_report</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
-    -->
+    <data>
 
-    <!-- actions opening views on models -->
-    <!--
-    <record model="ir.actions.act_window" id="todo_report.action_window">
-      <field name="name">todo_report window</field>
-      <field name="res_model">todo_report.todo_report</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    -->
+        <!--QWeb Reports -->
+        <!-- NAME & FILE_NAME should be the same -->
+        <report
+                id="action_todo_task_report"
+                model="todo.task"
+                report_type="qweb-pdf"
+                string="To-do Tasks"
+                name="todo_report.report_todo_task_template"
+                file="todo task report"
+        /><!-- 最好先使用report_type="qweb-html" -->
 
-    <!-- server action to the one above -->
-    <!--
-    <record model="ir.actions.server" id="todo_report.action_server">
-      <field name="name">todo_report server</field>
-      <field name="model_id" ref="model_todo_report_todo_report"/>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": self._name,
-        }
-      </field>
-    </record>
-    -->
 
-    <!-- Top menu item -->
-    <!--
-    <menuitem name="todo_report" id="todo_report.menu_root"/>
-    -->
-    <!-- menu categories -->
-    <!--
-    <menuitem name="Menu 1" id="todo_report.menu_1" parent="todo_report.menu_root"/>
-    <menuitem name="Menu 2" id="todo_report.menu_2" parent="todo_report.menu_root"/>
-    -->
-    <!-- actions -->
-    <!--
-    <menuitem name="List" id="todo_report.menu_1_list" parent="todo_report.menu_1"
-              action="todo_report.action_window"/>
-    <menuitem name="Server to list" id="todo_report" parent="todo_report.menu_2"
-              action="todo_report.action_server"/>
-    -->
-  </data>
+        <template id="report_todo_task_template">
+            <t t-call="report.html_container">
+                <t t-call="report.internal_layout">
+                    <!-- <t t-call="report.external_layout"> -->
+                    <div class="page">
+                        <h2>TITLE FOR YOUR REPORT</h2>
+                        <div class="row bg-primary">
+                            <div class="col-xs-3">
+                                <span class="glyphicon glyphicon-pushpin"/>
+                                What
+                            </div>
+                            <div class="col-xs-2">Who</div>
+                            <div class="col-xs-1">When</div>
+                            <div class="col-xs-3">Where</div>
+                            <div class="col-xs-3">Watchers</div>
+                        </div>
+                        <t t-foreach="docs" t-as="o">
+                            <div class="row">
+                                <!-- Data Row Content -->
+                            </div>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+
+    </data>
 </odoo>
