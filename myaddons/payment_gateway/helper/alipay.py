@@ -9,7 +9,7 @@ import requests
 from Crypto.Hash import SHA
 from Crypto.PublicKey import RSA
 from Crypto.Signature import PKCS1_v1_5
-from odoo.addons.ihyf_payment_gateway.common.backend_common import get_conf_info
+from odoo.addons.payment_gateway.common.backend_common import get_conf_info
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -76,7 +76,7 @@ def _base_open_api_params(method, app_id, private_key, **kwargs):
     return all_params
 
 
-def alipay_generate_prepay_native(data):
+def payment_gateway(data):
     """
     获取支付宝的付款二维码
     transact_num: 交易号

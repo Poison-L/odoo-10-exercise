@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 import logging
-from odoo.addons.ihyf_payment_gateway.controllers.pay_base_controller \
+from odoo.addons.payment_gateway.controllers.pay_base_controller \
     import PayBaseController
 from odoo.http import request
-from odoo.addons.ihyf_payment_gateway.common.backend_common \
+from odoo.addons.payment_gateway.common.backend_common \
     import get_payment_user_info, get_payment_order, create_payment_order, \
     xml_to_array, update_payment_order, get_notify_url, get_payment_id, \
     get_payment_order_by_id, get_conf_info
 from odoo import http
 
-from odoo.addons.ihyf_payment_gateway.helper.wxpay import QRWXpay
+from odoo.addons.payment_gateway.helper.wxpay import QRWXpay
 
 _logger = logging.getLogger(__name__)
 

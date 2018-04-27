@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
-import wxpay
-import alipay
+from . import wxpay
+from . import alipay

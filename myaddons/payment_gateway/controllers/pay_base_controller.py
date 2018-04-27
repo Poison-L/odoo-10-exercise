@@ -2,7 +2,7 @@
 from odoo import http
 from odoo.addons.web.controllers.main import DataSet
 from odoo.http import request
-from odoo.addons.ihyf_payment_gateway.common.check_common import *
+from odoo.addons.payment_gateway.common.check_common import *
 
 
 class PayBaseController(DataSet):

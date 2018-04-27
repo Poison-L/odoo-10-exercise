@@ -1,19 +1,16 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-import logging
-from odoo.addons.ihyf_payment_gateway.controllers.pay_base_controller \
-    import PayBaseController
-from odoo.addons.ihyf_payment_gateway.helper.alipay \
-    import alipay_generate_prepay_native, alipay_rsa_verify, \
-    alipay_trade_query_call, alipay_trade_refund
-from odoo.addons.ihyf_payment_gateway.common.backend_common \
-    import get_payment_user_info, get_payment_order, get_payment_order_by_id, \
-    create_payment_order, update_payment_order, get_notify_url, get_payment_id
-from odoo.addons.ihyf_payment_gateway.common.check_common \
-    import check_kwargs_pay_refund
-from odoo import http
-from openerp.http import request
 import sys
+import logging
+from odoo import http
+from odoo.http import request
+from odoo.addons.payment_gateway.controllers.pay_base_controller import PayBaseController
+from odoo.addons.payment_gateway.helper.alipay import alipay_generate_prepay_native, alipay_rsa_verify, \
+    alipay_trade_query_call, alipay_trade_refund
+from odoo.addons.payment_gateway.common.backend_common import get_payment_user_info, get_payment_order, \
+    get_payment_order_by_id, create_payment_order, update_payment_order, get_notify_url, get_payment_id
+from odoo.addons.payment_gateway.common.check_common import check_kwargs_pay_refund
+
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -233,4 +230,3 @@ class HollyWantAliPay(PayBaseController):
                                       app_id=app_id,
                                       private_key=private_key)
             return res
-

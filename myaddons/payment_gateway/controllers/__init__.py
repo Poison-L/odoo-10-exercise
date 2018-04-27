@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-import ihyf_alipay
-import ihyf_wangbipay
-import ihyf_weixinpay
-import pay_base_controller
-import pay_base_function
+from . import ihyf_alipay
+from . import ihyf_wangbipay
+from . import ihyf_weixinpay
+from . import pay_base_controller
+from . import pay_base_function

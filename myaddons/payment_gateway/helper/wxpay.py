@@ -13,10 +13,12 @@ from xml.etree import ElementTree
 from dict2xml import dict2xml
 from collections import OrderedDict
 from urllib import urlencode
-from odoo.addons.ihyf_payment_gateway.common.backend_common import get_conf_info
+from odoo.addons.payment_gateway.common.backend_common import get_conf_info
 import sys
+
 reload(sys)
 sys.setdefaultencoding('utf-8')
+
 
 class WXpayException(Exception):
     """Base Alipay Exception"""
@@ -40,6 +42,7 @@ class WXpay(object):
 
     URL_UINFIEDORDER = get_conf_info('URL_UINFIEDORDER')
     URL_VERIFY_ORDER = get_conf_info('URL_VERIFY_ORDER')
+
     # URL_UINFIEDORDER = 'https://api.mch.weixin.qq.com/pay/unifiedorder'
     # URL_VERIFY_ORDER = 'https://api.mch.weixin.qq.com/pay/orderquery'
 
@@ -91,7 +94,7 @@ class WXpay(object):
         for k in params_dict:
             if isinstance(params_dict[k], unicode):
                 params_dict[k] = params_dict[k].encode('utf-8')
-            foo_sign.append('%s=%s' % (k, params_dict[k], ))
+            foo_sign.append('%s=%s' % (k, params_dict[k],))
         foo_sign = '&'.join(foo_sign)
         sign = hashlib.md5(foo_sign).hexdigest().upper()
         return sign
@@ -394,9 +397,9 @@ class QRWXpay(WXpay):
 class JSWXpay(WXpay):
     """ JSAPI 支付接口 """
 
-    URL_REDIRECT = '''https://open.weixin.qq.com/connect/oauth2/authorize?%s'''\
+    URL_REDIRECT = '''https://open.weixin.qq.com/connect/oauth2/authorize?%s''' \
                    '''#wechat_redirect'''
-    URL_OPENID = '''https://api.weixin.qq.com/sns/oauth2/access_token?%s'''\
+    URL_OPENID = '''https://api.weixin.qq.com/sns/oauth2/access_token?%s''' \
                  '''&grant_type=authorization_code'''
 
     def generate_redirect_url(self, url_dict):
@@ -429,7 +432,7 @@ class JSWXpay(WXpay):
         for k in params_dict:
             if isinstance(params_dict[k], unicode):
                 params_dict[k] = params_dict[k].encode('utf-8')
-            foo_url.append('%s=%s' % (k, params_dict[k], ))
+            foo_url.append('%s=%s' % (k, params_dict[k],))
         foo_url = '&'.join(foo_url)
         url = self.URL_OPENID % foo_url
 

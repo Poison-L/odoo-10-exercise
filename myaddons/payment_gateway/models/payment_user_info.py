@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from openerp import api, fields, models
-from odoo.addons.ihyf_payment_gateway.common.backend_common import *
-from openerp.tools.translate import _
+from odoo import api, fields, models, _
+from odoo.addons.payment_gateway.common.backend_common import *
+# from openerp.tools.translate import _
 
 
 class PaymentUserInfo(models.Model):

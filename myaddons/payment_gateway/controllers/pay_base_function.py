@@ -1,5 +1,5 @@
 # coding:utf-8
-from odoo.addons.ihyf_payment_gateway.controllers.pay_base_controller \
+from odoo.addons.payment_gateway.controllers.pay_base_controller \
     import PayBaseController
 from odoo.http import request
 

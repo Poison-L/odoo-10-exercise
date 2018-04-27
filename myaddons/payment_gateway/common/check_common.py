@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo.addons.ihyf_payment_gateway.common.backend_common \
-    import get_payment_user_info
+from odoo.addons.payment_gateway.common.backend_common import get_payment_user_info
 
 
 def check_kwargs_pay_qrcode(cr, kwargs):

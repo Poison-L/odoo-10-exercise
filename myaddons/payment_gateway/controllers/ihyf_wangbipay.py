@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 import json
 import requests
-from openerp.http import request
-from odoo.addons.ihyf_payment_gateway.controllers.pay_base_controller \
+from odoo.http import request
+from odoo.addons.payment_gateway.controllers.pay_base_controller \
     import PayBaseController
-from odoo.addons.ihyf_payment_gateway.common.backend_common \
+from odoo.addons.payment_gateway.common.backend_common \
     import get_payment_user_info, get_payment_order, create_payment_order, \
     update_wangbipay_code, update_payment_order, get_payment_id
 
 import logging
+
 _logger = logging.getLogger(__name__)
 
 
