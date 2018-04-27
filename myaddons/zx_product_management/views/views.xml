@@ -33,10 +33,10 @@
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click">
                                 <!--<div class="o_kanban_tags_section">-->
-                                <!--<field name="attribute_value_ids" groups="product.group_product_variant"/>-->
+                                    <!--<field name="attribute_value_ids" groups="product.group_product_variant"/>-->
                                 <!--</div>-->
                                 <!--<div class="o_kanban_image">-->
-                                <!--<img t-att-src=""/>-->
+                                    <!--<img t-att-src=""/>-->
                                 <!--</div>-->
                                 <div class="oe_kanban_details">
                                     <strong>
