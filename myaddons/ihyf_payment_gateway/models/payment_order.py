@@ -9,64 +9,20 @@ class PaymentOrder(models.Model):
     _name = 'payment.order'
     _order = 'update_time desc'
 
-    name = fields.Char(
-        string='Order ID'
-    )
-
-    payment_id = fields.Char(
-        string='Payment ID'
-    )
-
-    total_amount = fields.Float(
-        string='Total Amount'
-    )
-
-    payment_type = fields.Selection(
-        string='Payment Type',
-        selection='_get_payment_type',
-    )
-
-    payment_status = fields.Selection(
-        string='Payment Status',
-        selection='_get_payment_status',
-    )
-
-    order_status = fields.Selection(
-        string='Order Status',
-        selection='_get_order_status',
-    )
-
-    product_name = fields.Char(
-        string='Product Name',
-    )
-
-    create_time = fields.Datetime(
-        string="Create Time",
-    )
-
-    update_time = fields.Datetime(
-        string="Update Time",
-    )
-
-    ihyf_payment_id = fields.Char(
-        string="Hollywant Payment ID",
-    )
-
-    ihyf_secret_key = fields.Char(
-        string="Hollywant Secret Key",
-    )
-
-    description = fields.Char(
-        string="Description",
-    )
-
-    wangbipay_code = fields.Char(
-        string="Wangbi code"
-    )
-
-    source = fields.Char(
-        string="Source"
-    )
+    name = fields.Char(string='Order ID')
+    payment_id = fields.Char(string='Payment ID')
+    total_amount = fields.Float(string='Total Amount')
+    payment_type = fields.Selection(string='Payment Type', selection='_get_payment_type', )
+    payment_status = fields.Selection(string='Payment Status', selection='_get_payment_status', )
+    order_status = fields.Selection(string='Order Status', selection='_get_order_status', )
+    product_name = fields.Char(string='Product Name', )
+    create_time = fields.Datetime(string="Create Time", )
+    update_time = fields.Datetime(string="Update Time", )
+    ihyf_payment_id = fields.Char(string="Hollywant Payment ID", )
+    ihyf_secret_key = fields.Char(string="Hollywant Secret Key", )
+    description = fields.Char(string="Description", )
+    wangbipay_code = fields.Char(string="Wangbi code")
+    source = fields.Char(string="Source")
 
     @api.model
     def _get_payment_type(self):

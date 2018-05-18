@@ -7,73 +7,26 @@ from odoo.tools.translate import _
 class PaymentUserInfo(models.Model):
     _name = 'payment.user.info'
 
-    name = fields.Char(
-        string='Name',
-        required=True
-    )
-
-    user_id = fields.Many2one(
-        comodel_name='res.users',
-        string='User',
-        required=True,
-        default=lambda self: self.env.user.id
-    )
-
-    ihyf_payment_id = fields.Char(
-        string='Hollywant Payment ID',
-        required=True
-    )
-
-    ihyf_secret_key = fields.Char(
-        string='Hollywant Secret Key',
-        required=True
-    )
+    name = fields.Char(string='Name', required=True)
+    user_id = fields.Many2one(comodel_name='res.users', string='User', required=True,
+                              default=lambda self: self.env.user.id)
+    ihyf_payment_id = fields.Char(string='Hollywant Payment ID', required=True)
+    ihyf_secret_key = fields.Char(string='Hollywant Secret Key', required=True)
     # 支付宝信息配置
-    alipay_seller_id = fields.Char(
-        string='Alipay Seller ID',
-        required=True
-    )
-
-    alipay_app_id = fields.Char(
-        string='Alipay App ID',
-        required=True
-    )
-
-    alipay_private_rsa = fields.Text(
-        string='Alipay Private RSA'
-    )
-    alipay_public_key = fields.Text(
-        string='Alipay Public Key'
-    )
+    alipay_seller_id = fields.Char(string='Alipay Seller ID', required=True)
+    alipay_app_id = fields.Char(string='Alipay App ID', required=True)
+    alipay_private_rsa = fields.Text(string='Alipay Private RSA')
+    alipay_public_key = fields.Text(string='Alipay Public Key')
     # 微信信息配置
-    weixinpay_seller_id = fields.Char(
-        string='Weixinpay Seller ID',
-        required=True
-    )
-
-    weixinpay_app_id = fields.Char(
-        string='Weixinpay App ID',
-        required=True
-    )
-
-    weixinpay_private_key = fields.Text(
-        string='Weixinpay Private Key'
-    )
+    weixinpay_seller_id = fields.Char(string='Weixinpay Seller ID', required=True)
+    weixinpay_app_id = fields.Char(string='Weixinpay App ID', required=True)
+    weixinpay_private_key = fields.Text(string='Weixinpay Private Key')
     # *币信息配置
-    wangbipay_seller_id = fields.Char(
-        string='Wangbipay Seller ID',
-        required=True
-    )
-
-    wangbipay_app_id = fields.Char(
-        string='Wangbipay App ID',
-        required=True
-    )
+    wangbipay_seller_id = fields.Char(string='Wangbipay Seller ID',required=True)
+    wangbipay_app_id = fields.Char(string='Wangbipay App ID',required=True)
 
     is_alipay = fields.Boolean(string='AliPay')
-
     is_weixinpay = fields.Boolean(string='WeixinPay')
-
     is_wangbipay = fields.Boolean(string='WangbiPay')
 
     @api.constrains('ihyf_payment_id')
