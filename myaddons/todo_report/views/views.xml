@@ -18,6 +18,7 @@
             <field name="dpi">90</field>
         </record>
 
+        <!-- 支持翻译 -->
         <report id="action_todo_task_report_translated"
                 string="Translated To-do Tasks"
                 model="todo.task"
